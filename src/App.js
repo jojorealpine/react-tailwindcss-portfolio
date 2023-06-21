@@ -6,6 +6,7 @@ import AppFooter from "./components/shared/AppFooter";
 import AppHeader from "./components/shared/AppHeader";
 import "./css/App.css";
 import UseScrollToTop from "./hooks/useScrollToTop";
+import { ProductFilterProvider } from "./context/filterContext";
 
 const About = lazy(() => import("./pages/AboutMe"));
 const Contact = lazy(() => import("./pages/Contact.jsx"));
@@ -18,22 +19,24 @@ function App() {
     <AnimatePresence>
       <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
         <Router>
-          <ScrollToTop />
-          <AppHeader />
-          <Suspense fallback={""}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="products" element={<Products />} />
-              <Route
-                path="products/single-Product"
-                element={<ProductSingle />}
-              />
+          <ProductFilterProvider>
+            <ScrollToTop />
+            <AppHeader />
+            <Suspense fallback={""}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="products" element={<Products />} />
+                <Route
+                  path="products/single-Product"
+                  element={<ProductSingle />}
+                />
 
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
-          <AppFooter />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
+            <AppFooter />
+          </ProductFilterProvider>
         </Router>
         <UseScrollToTop />
       </div>
