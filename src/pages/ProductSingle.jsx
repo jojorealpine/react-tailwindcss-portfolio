@@ -1,7 +1,7 @@
-import ProjectGallery from '../components/projects/ProjectGallery';
-import ProjectHeader from '../components/projects/ProjectHeader';
-import ProjectInfo from '../components/projects/ProjectInfo';
-import ProjectRelatedProjects from '../components/projects/ProjectRelatedProjects';
+import ProjectGallery from '../components/products/ProjectGallery';
+import ProjectHeader from '../components/products/ProjectHeader';
+import ProjectInfo from '../components/products/ProjectInfo';
+import ProjectRelatedProjects from '../components/products/ProjectRelatedProjects';
 import { SingleProjectProvider } from '../context/SingleProjectContext';
 import { motion } from 'framer-motion';
 
